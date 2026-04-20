@@ -22,6 +22,10 @@ function App() {
   const nextSweetWorld = () => setSweetWorldRotation(prev => prev + 1);
   const prevSweetWorld = () => setSweetWorldRotation(prev => prev - 1);
 
+  const [cookieWorldRotation, setCookieWorldRotation] = useState(0);
+  const nextCookieWorld = () => setCookieWorldRotation(prev => prev + 1);
+  const prevCookieWorld = () => setCookieWorldRotation(prev => prev - 1);
+
   // Preload frames for hero section
   useEffect(() => {
     let loaded = 0;
@@ -173,30 +177,82 @@ function App() {
   const sweetWorldItems = [
     { 
       id: 1,
-      name: "Celebration Cakes", 
-      desc: "Handcrafted cakes topped with magic and baked for your most special moments 🎂✨", 
-      img: "./images/Gallery 1.jpeg", 
+      name: "Black Forest", 
+      desc: "Rich chocolate layers with cherries & cream 🍒", 
+      img: "./images/blackforest.jpg", 
       frameType: "frame-polaroid" 
     },
     { 
       id: 2,
-      name: "Flaky Puffs", 
-      desc: "Soft, flaky puffs baked fresh every morning with a buttery hug 🥐✨", 
-      img: "./images/Gallery 2.jpeg", 
+      name: "Red Velvet", 
+      desc: "Soft, velvety & perfectly indulgent ❤️", 
+      img: "./images/redvelvet.jpg", 
       frameType: "frame-blob" 
     },
     { 
       id: 3,
-      name: "Gift Boxes", 
-      desc: "Curated boxes of joy, tied with a perfect pastel ribbon for someone you love 🎁🤍", 
-      img: "./images/Gallery 3.jpeg", 
+      name: "Dark Chocolate", 
+      desc: "Deep, intense cocoa delight 🍫", 
+      img: "./images/darkchocolate.jpg", 
       frameType: "frame-scalloped" 
     },
     { 
       id: 4,
-      name: "Mini Treats", 
-      desc: "Bite-sized happiness! Perfect tiny treats to brighten up your afternoon 🍓🍰", 
-      img: "./images/Gallery 4.jpeg", 
+      name: "Chocolate", 
+      desc: "Classic sweet chocolate goodness 🍩", 
+      img: "./images/chocolate.jpg", 
+      frameType: "frame-sticker" 
+    },
+    { 
+      id: 5,
+      name: "Jam Roll", 
+      desc: "Soft sponge rolled with fruity love 🍓", 
+      img: "./images/jamroll.jpg", 
+      frameType: "frame-polaroid" 
+    },
+    { 
+      id: 6,
+      name: "Pineapple", 
+      desc: "Fresh, juicy & tropical sweetness 🍍", 
+      img: "./images/pineapple.jpg", 
+      frameType: "frame-blob" 
+    },
+    { 
+      id: 7,
+      name: "Butterscotch", 
+      desc: "Crunchy caramel bliss in every bite ✨", 
+      img: "./images/butterscotch.jpg", 
+      frameType: "frame-scalloped" 
+    },
+    { 
+      id: 8,
+      name: "Brownie", 
+      desc: "Fudgy, gooey & irresistibly rich 🤎", 
+      img: "./images/brownie.jpg", 
+      frameType: "frame-sticker" 
+    }
+  ];
+
+  const cookieWorldItems = [
+    { 
+      id: 1,
+      name: "Dry Fruit Cookies", 
+      desc: "Crunchy, rich & packed with nutty goodness 🌰", 
+      img: "./images/dryfruit.jpg", 
+      frameType: "frame-polaroid" 
+    },
+    { 
+      id: 2,
+      name: "Coconut Cookies", 
+      desc: "Light, tropical & delicately sweet 🥥", 
+      img: "./images/coconut.jpg", 
+      frameType: "frame-scalloped" 
+    },
+    { 
+      id: 3,
+      name: "Jeera Cookies", 
+      desc: "Savory, crispy & full of classic flavor ✨", 
+      img: "./images/jeera.jpg", 
       frameType: "frame-sticker" 
     }
   ];
@@ -205,12 +261,12 @@ function App() {
     <>
       {/* Header / Navbar */}
       <nav className="navbar fade-in">
-        <div className="logo">MN Corporation</div>
+        <div className="logo">The Bake House</div>
         <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#about">About Us</a>
-          <a href="#bestsellers">Bestsellers</a>
           <a href="#sweet-bites">Sweet Bites</a>
+          <a href="#bestsellers">Bestsellers</a>
           <a href="#contact">Contact</a>
         </div>
         <div className="menu-toggle">☰</div>
@@ -260,64 +316,23 @@ function App() {
         <div className="container about-container">
           <div className="about-left animate-slide-left">
             <div className="polaroid-frame">
-              <img src="./images/Gallery 1.jpeg" alt="Bake House Storefront" />
+              <img src={`./images/image1.jpeg?v=${Date.now()}`} alt="Bake House Storefront" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               <div className="polaroid-caption">🤍🤍🤍</div>
             </div>
           </div>
           <div className="about-right animate-slide-right">
             <h2>About Us</h2>
-            <p className="about-subheading">Baked with love, served with joy 🎀</p>
+            <p className="about-subheading">Baked with love, crafted with passion 🎀</p>
             <p className="about-story">
-              Welcome to MN Corporation — where every bite tells a story 🍰 Nestled in the heart of the city, our little Bake House is a place where flour, butter, and pure love come together.
+              Welcome to The Bake House — your cozy little corner where every bite feels special ✨
               <br/><br/>
-              <span className="decorative-emojis">🌸 ☕ 🧁</span>
+              From fluffy cakes and dreamy pastries to freshly baked breads, golden puffs, and irresistible cookies — we bring together everything you love under one roof 🍰🥐
               <br/><br/>
-              From dreamy celebration cakes to flaky croissants fresh from the oven, we craft every treat by hand, with care in every layer. Our story began with a simple belief: that great food makes great memories. Come, pull up a chair, and let us sweeten your day ✨
+              Every treat is handcrafted with care, using the finest ingredients and a touch of magic in every layer 💕 Whether it’s a celebration, a quick snack, or just a sweet craving, we’re here to make your moments a little more delicious ✨
             </p>
           </div>
         </div>
         <SectionDivider fill="#FFFEF5" />
-      </section>
-
-      {/* Bestsellers Section */}
-      <section id="bestsellers" className="bestsellers-section">
-        <div className="blob-tl"></div>
-        <div className="blob-tr"></div>
-        <div className="blob-bc"></div>
-        <div className="decorative-star" style={{ top: '15%', left: '10%' }}>✨</div>
-        <div className="decorative-star" style={{ top: '25%', right: '15%' }}>🌟</div>
-        <div className="decorative-star" style={{ top: '50%', left: '5%' }}>✨</div>
-        <div className="decorative-star" style={{ bottom: '20%', right: '10%' }}>🌟</div>
-        <div className="decorative-star" style={{ bottom: '10%', left: '20%' }}>✨</div>
-        
-        <div className="container">
-          <h2 className="bestsellers-title">Our Bestsellers ✨</h2>
-          
-          <div className="bestsellers-collage">
-            {[
-              { name: "🥟 Aloo Puff", desc: "Spiced potato, golden & flaky", color: "#FF6EB4", delay: "0s", img: "./images/Gallery 1.jpeg" },
-              { name: "🧀 Paneer Puff", desc: "Creamy cottage cheese, perfectly puffed", color: "#DA70FF", delay: "0.15s", img: "./images/Gallery 2.jpeg" },
-              { name: "🍄 Mushroom Puff", desc: "Earthy, herby & absolutely divine", color: "#FF9F1C", delay: "0.3s", img: "./images/Gallery 3.jpeg" },
-              { name: "🌽 Corn & Cheese Puff", desc: "Sweet corn meets melty cheese", color: "#FF6EB4", delay: "0.45s", img: "./images/Gallery 4.jpeg" },
-              { name: "🥕 Veggie Delight Puff", desc: "Fresh veggies, perfectly baked & irresistibly crispy", color: "#DA70FF", delay: "0.6s", img: "./images/Gallery 5.jpeg" }
-            ].map((puff, idx) => (
-              <div key={idx} className={`bestsellers-item item-${idx+1}`} style={{ transitionDelay: puff.delay }}>
-                <div className="bestsellers-frame-wrapper">
-                  <div className="bestsellers-frame">
-                    <img src={puff.img} alt={puff.name} />
-                  </div>
-                  <div className="floating-sparkle sparkle-1">✨</div>
-                  <div className="floating-sparkle sparkle-2">🤍</div>
-                </div>
-                <div className="bestsellers-info">
-                  <h3 className="bestsellers-name" style={{ color: puff.color }}>{puff.name}</h3>
-                  <p className="bestsellers-desc">{puff.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <SectionDivider fill="#FFF0DB" />
       </section>
 
       {/* Sweet Bites Section - Stacked Deck Flashcards */}
@@ -452,6 +467,48 @@ function App() {
         <SectionDivider fill="#FFF0DB" />
       </section>
 
+      {/* Bestsellers Section */}
+      <section id="bestsellers" className="bestsellers-section">
+        <div className="blob-tl"></div>
+        <div className="blob-tr"></div>
+        <div className="blob-bc"></div>
+        <div className="decorative-star" style={{ top: '15%', left: '10%' }}>✨</div>
+        <div className="decorative-star" style={{ top: '25%', right: '15%' }}>🌟</div>
+        <div className="decorative-star" style={{ top: '50%', left: '5%' }}>✨</div>
+        <div className="decorative-star" style={{ bottom: '20%', right: '10%' }}>🌟</div>
+        <div className="decorative-star" style={{ bottom: '10%', left: '20%' }}>✨</div>
+        
+        <div className="container">
+          <h2 className="bestsellers-title">Our Bestsellers ✨</h2>
+          
+          <div className="bestsellers-collage">
+            {[
+              { name: "🥟 Aloo Puff", desc: "Spiced potato, golden & flaky", color: "#FF6EB4", delay: "0s", img: "./images/aalopuff.jpg" },
+              { name: "🧀 Paneer Puff", desc: "Creamy, rich & perfectly baked", color: "#DA70FF", delay: "0.15s", img: "./images/paneerpuff.jpg" }
+            ].map((puff, idx) => (
+              <div key={idx} className={`bestsellers-item item-${idx+1}`} style={{ transitionDelay: puff.delay }}>
+                <div className="bestsellers-frame-wrapper">
+                  <div className="bestsellers-frame">
+                    <img src={puff.img} alt={puff.name} />
+                  </div>
+                  <div className="floating-sparkle sparkle-1">✨</div>
+                  <div className="floating-sparkle sparkle-2">🤍</div>
+                </div>
+                <div className="bestsellers-info">
+                  <h3 className="bestsellers-name" style={{ color: puff.color }}>{puff.name}</h3>
+                  <p className="bestsellers-desc">{puff.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <p className="bestsellers-subheading" style={{ textAlign: 'center', fontFamily: 'Nunito, sans-serif', color: '#8B7A75', fontSize: '1.25rem', marginTop: '1rem', marginBottom: '2rem', textShadow: '0 0 8px rgba(255,255,255,0.8)' }}>
+            From flaky puffs to freshly baked breads, we bring you a world of warm, comforting delights made with love 🍞✨
+          </p>
+        </div>
+        <SectionDivider fill="#FFF0DB" />
+      </section>
+
       {/* Our Sweet World Section */}
       <section id="showcase" className="sweet-world-section">
         <div className="container sweet-world-container">
@@ -521,7 +578,7 @@ function App() {
           </div>
 
           <div className="sweet-world-text-col">
-            <h2 className="sweet-world-title">Our Sweet World 🍰✨</h2>
+            <h2 className="sweet-world-title">Our Pastry World 🍰✨</h2>
             <p className="sweet-world-subtitle">Handpicked treats, made with magic ✨</p>
             
             <div className="sweet-world-text-stack">
@@ -557,6 +614,111 @@ function App() {
         <SectionDivider fill="#FFFCF5" />
       </section>
 
+      {/* Cookie Wonderland Section */}
+      <section id="cookies" className="sweet-world-section">
+        <div className="container sweet-world-container">
+          
+          <div className="sweet-world-text-col" style={{ gridColumn: 1, order: 1, marginLeft: 0, marginRight: '40px' }}>
+            <h2 className="sweet-world-title">Cookie Wonderland 🍪✨</h2>
+            <p className="sweet-world-subtitle">Freshly baked cookies, made with love and a sprinkle of magic ✨</p>
+            
+            <div className="sweet-world-text-stack">
+              {cookieWorldItems.map((item, idx) => {
+                const activeIndex = ((cookieWorldRotation % cookieWorldItems.length) + cookieWorldItems.length) % cookieWorldItems.length;
+                const isActive = activeIndex === idx;
+
+                return (
+                  <div 
+                    key={item.id} 
+                    className="sweet-world-text-content"
+                    style={{
+                      opacity: isActive ? 1 : 0,
+                      transform: isActive ? 'translateY(0)' : 'translateY(15px)',
+                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                      pointerEvents: isActive ? 'auto' : 'none',
+                    }}
+                  >
+                    <h3 className="sweet-world-category">{item.name}</h3>
+                    <p className="sweet-world-desc">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+            
+            <div className="sweet-world-nav-arrows">
+              <button onClick={prevCookieWorld} className="sweet-world-arrow">←</button>
+              <button onClick={nextCookieWorld} className="sweet-world-arrow">→</button>
+            </div>
+          </div>
+
+          <div className="sweet-world-deck-col" style={{ gridColumn: 2, order: 2, marginRight: 0, marginLeft: '40px', transform: 'translateX(0)' }}>
+            <div className="sweet-world-deck-container">
+              {cookieWorldItems.map((item, idx) => {
+                const activeIndex = ((cookieWorldRotation % cookieWorldItems.length) + cookieWorldItems.length) % cookieWorldItems.length;
+                const pos = (idx - activeIndex + cookieWorldItems.length) % cookieWorldItems.length;
+                
+                let translateX = "-50%";
+                let translateY = "-50%";
+                let rotateZ = 0;
+                let scale = 1;
+                let opacity = 1;
+                let blur = 0;
+                let zIndex = 5 - pos;
+
+                if (pos === 0) {
+                  translateX = "-50%";
+                  scale = 1.04;
+                  rotateZ = 0;
+                } else if (pos === 1) {
+                  translateX = "calc(-50% - 20px)";
+                  translateY = "calc(-50% + 15px)";
+                  rotateZ = -2;
+                  scale = 0.98;
+                  blur = 1.5;
+                  opacity = 0.85;
+                } else if (pos === 2) {
+                  translateX = "calc(-50% - 40px)";
+                  translateY = "calc(-50% + 30px)";
+                  rotateZ = -4;
+                  scale = 0.94;
+                  blur = 3;
+                  opacity = 0.7;
+                } else if (pos === 3) {
+                  translateX = "calc(-50% + 80px)"; 
+                  translateY = "calc(-50% + 10px)";
+                  rotateZ = 5;
+                  scale = 1;
+                  blur = 2;
+                  opacity = 0; 
+                }
+
+                return (
+                  <div 
+                    key={item.id}
+                    className={`sweet-world-card ${item.frameType} ${pos === 0 ? 'active' : ''}`}
+                    onClick={() => { if(pos !== 0) nextCookieWorld() }}
+                    style={{
+                      transform: `translate(${translateX}, ${translateY}) scale(${scale}) rotateZ(${rotateZ}deg)`,
+                      zIndex: zIndex,
+                      opacity: opacity,
+                      filter: `blur(${blur}px)`
+                    }}
+                  >
+                    <div className="card-inner">
+                      <img src={item.img} alt={item.name} />
+                      {pos === 0 && <div className="card-sparkle">✨</div>}
+                      {item.frameType === 'frame-polaroid' && <div className="card-tape">🎀</div>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
+        <SectionDivider fill="#FFFCF5" />
+      </section>
+
       {/* Gallery Section */}
       <section id="gallery" className="gallery-section">
         <div className="container">
@@ -565,17 +727,13 @@ function App() {
 
           <div className="gallery-grid">
             {[
-              { name: "🍰 Strawberry Dream", img: "./images/Gallery 1.jpeg", class: "bento-1" },
-              { name: "🥐 Butter Croissant", img: "./images/Gallery 2.jpeg", class: "bento-2" },
-              { name: "🧁 Rose Cupcake", img: "./images/Gallery 3.jpeg", class: "bento-3" },
-              { name: "🍪 Choco Cookie", img: "./images/Gallery 4.jpeg", class: "bento-4" },
-              { name: "🥟 Aloo Puff", img: "./images/Gallery 5.jpeg", class: "bento-5" },
+              { name: "🍰 Strawberry Dream", img: "./images/image2.jpeg", class: "bento-1" },
+              { name: "🥐 Butter Croissant", img: "./images/image3.jpeg", class: "bento-2" },
+              { name: "🧁 Rose Cupcake", img: "./images/final.png", class: "bento-3" },
+              { name: "🍪 Choco Cookie", img: "./images/image5.jpeg", class: "bento-4" },
             ].map((photo, idx) => (
               <div key={idx} className={`gallery-bento-card ${photo.class}`}>
                 <img src={photo.img} alt={photo.name} />
-                <div className="bento-overlay">
-                  <span className="bento-label">{photo.name}</span>
-                </div>
               </div>
             ))}
           </div>
@@ -591,25 +749,45 @@ function App() {
             <h3 className="atelier-subtitle">Visit Our Bake House 🤍</h3>
             <p className="atelier-desc">Step into a cozy world of handcrafted delights, where every treat is baked with love and a touch of magic ✨</p>
             
-            <div className="atelier-location-block">
-              <span className="location-label">📍 LOCATION</span>
-              <address className="location-address">
-                Bake House<br/>
-                33, Main Rd, Tagore Nagar<br/>
-                Anupam Nagar, Govindpuri<br/>
-                Gwalior, Madhya Pradesh 474011<br/>
-                India
-              </address>
+            <div className="atelier-locations-wrapper" style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', width: '100%' }}>
+              <div className="atelier-location-block" style={{ flex: '1 1 200px', marginBottom: '0' }}>
+                <span className="location-label">📍 LOCATION</span>
+                <address className="location-address">
+                  Bake House<br/>
+                  33, Main Rd, Tagore Nagar<br/>
+                  Anupam Nagar, Govindpuri<br/>
+                  Gwalior, Madhya Pradesh 474011<br/>
+                  India
+                </address>
+              </div>
+              <div className="atelier-location-block" style={{ flex: '1 1 200px', marginBottom: '0' }}>
+                <span className="location-label">📍 LOCATION 2</span>
+                <address className="location-address">
+                  Bake House (Branch 2)<br/>
+                  New, Vivek Nagar<br/>
+                  Gwalior, Madhya Pradesh 474005<br/>
+                  India
+                </address>
+              </div>
             </div>
             
-            <a href="https://www.google.com/maps/place/BAKE+HOUSE/@26.2071519,78.2002472,17z/data=!3m1!4b1!4m6!3m5!1s0x3976c5d52f8c8e5b:0xc2917a954e5751dd!8m2!3d26.2071519!4d78.2002472!16s%2Fg%2F11s1rjtb23?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="atelier-cta">
-              Find Us on Maps 🗺️
-            </a>
+            <div className="atelier-buttons-wrapper" style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', width: '100%', marginTop: '1.5rem', alignItems: 'center' }}>
+              <div style={{ flex: '1 1 200px', display: 'flex', justifyContent: 'center' }}>
+                <a href="https://www.google.com/maps/place/BAKE+HOUSE/@26.2071519,78.2002472,17z/data=!3m1!4b1!4m6!3m5!1s0x3976c5d52f8c8e5b:0xc2917a954e5751dd!8m2!3d26.2071519!4d78.2002472!16s%2Fg%2F11s1rjtb23?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="atelier-cta" style={{ textAlign: 'center', width: '100%', maxWidth: 'fit-content' }}>
+                  Find Govindpuri Branch 📍
+                </a>
+              </div>
+              <div style={{ flex: '1 1 200px', display: 'flex', justifyContent: 'center' }}>
+                <a href="https://www.google.com/maps/place/Cake+house+in+Gwalior/@26.2220907,78.2023493,17z/data=!3m1!4b1!4m6!3m5!1s0x3976c12bb1c67bb1:0x967015e404e330a!8m2!3d26.2220907!4d78.2023493!16s%2Fg%2F11rv5cy0jj?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="atelier-cta" style={{ textAlign: 'center', width: '100%', maxWidth: 'fit-content' }}>
+                  Find Vivek Nagar Branch 📍
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="atelier-right animate-slide-right">
             <div className="atelier-organic-frame">
-              <img src="./images/Gallery 1.jpeg" alt="Bake House Interior" />
+              <img src="./images/i1.jpeg" alt="Bake House Interior" />
               <div className="atelier-decor-heart">🤍</div>
               <div className="atelier-decor-sparkle">✨</div>
             </div>
@@ -619,7 +797,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact-us" className="contact-section">
+      <section id="contact" className="contact-section">
         <div className="container contact-container">
           <h2 className="contact-heading animate-on-scroll">Let’s Stay in Touch 💌</h2>
           
@@ -638,13 +816,26 @@ function App() {
                   <p className="contact-value">mncorporation0805@gmail.com</p>
                 </div>
                 
-                <div className="contact-item">
-                  <span className="contact-label">LOCATION</span>
-                  <p className="contact-value">
-                    City Center District<br/>
-                    Gwalior, Madhya Pradesh<br/>
-                    India
-                  </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', width: '100%', justifyContent: 'center' }}>
+                  <div className="contact-item" style={{ flex: '1 1 200px', marginBottom: '0' }}>
+                    <span className="contact-label">LOCATION 1</span>
+                    <p className="contact-value">
+                      Bake House<br/>
+                      33, Main Rd, Tagore Nagar<br/>
+                      Anupam Nagar, Govindpuri<br/>
+                      Gwalior, Madhya Pradesh 474011<br/>
+                      India
+                    </p>
+                  </div>
+                  <div className="contact-item" style={{ flex: '1 1 200px', marginBottom: '0' }}>
+                    <span className="contact-label">LOCATION 2</span>
+                    <p className="contact-value">
+                      Bake House (Branch 2)<br/>
+                      New, Vivek Nagar<br/>
+                      Gwalior, Madhya Pradesh 474005<br/>
+                      India
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -692,17 +883,22 @@ function App() {
               <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
+                <li><a href="#sweet-bites">Sweet Bites</a></li>
                 <li><a href="#bestsellers">Bestsellers</a></li>
-                <li><a href="#sweetbites">Sweet Bites</a></li>
-                <li><a href="#contact-us">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
             <div className="footer-col brand-col animate-on-scroll delay-3">
               <h4>The Bake House</h4>
               <p>
+                📍 Location 1<br/>
                 33, Main Rd, Tagore Nagar<br/>
                 Anupam Nagar, Govindpuri<br/>
                 Gwalior, Madhya Pradesh 474011<br/><br/>
+                📍 Location 2<br/>
+                Bake House (Branch 2)<br/>
+                New, Vivek Nagar<br/>
+                Gwalior, Madhya Pradesh 474005<br/><br/>
                 +91 98765 43210<br/>
                 mncorporation0805@gmail.com
               </p>
@@ -713,7 +909,8 @@ function App() {
           <div className="footer-divider"></div>
           
           <div className="footer-bottom">
-            Crafted with 🤍 by MN Corporation
+            Crafted with ♥ by MN Corporation<br/>
+            © 2026 All Rights Reserved
           </div>
         </div>
       </footer>
