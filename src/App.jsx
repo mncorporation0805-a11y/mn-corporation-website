@@ -28,7 +28,7 @@ function App() {
     for (let i = 1; i <= totalFrames; i++) {
       const img = new Image();
       const frameNum = i.toString().padStart(3, '0');
-      img.src = `/herosection/ezgif-frame-${frameNum}.jpg`;
+      img.src = `./herosection/ezgif-frame-${frameNum}.jpg`;
       img.onload = () => {
         loaded++;
         if (loaded === 1 || loaded === totalFrames) {
@@ -140,31 +140,31 @@ function App() {
   const cakeShowcaseItems = [
     {
       id: 1,
-      img: "/images/c1.png",
+      img: "./images/c1.png",
       name: "Chocolate Cake 🍫",
       desc: "Rich, velvety chocolate layers, freshly baked with love and topped with silky ganache 🤎"
     },
     {
       id: 2,
-      img: "/images/c2.png",
+      img: "./images/c2.png",
       name: "Strawberry Cake 🍓",
       desc: "Light, fluffy layers infused with fresh strawberries and a dreamy berry sweetness 💗"
     },
     {
       id: 3,
-      img: "/images/c3.png",
+      img: "./images/c3.png",
       name: "Butterscotch Cake 🍯",
       desc: "Golden caramel crunch with creamy butterscotch layers — pure indulgence in every bite ✨"
     },
     {
       id: 4,
-      img: "/images/c4.png",
+      img: "./images/c4.png",
       name: "Black Forest Cake 🍒",
       desc: "Classic chocolate sponge layered with cherries and whipped cream — timeless and elegant ❤️"
     },
     {
       id: 5,
-      img: "/images/c5.png",
+      img: "./images/c5.png",
       name: "Pineapple Cake 🍍",
       desc: "Soft vanilla sponge with juicy pineapple freshness — light, tropical and refreshing 🌼"
     }
@@ -175,28 +175,28 @@ function App() {
       id: 1,
       name: "Celebration Cakes", 
       desc: "Handcrafted cakes topped with magic and baked for your most special moments 🎂✨", 
-      img: "/images/Gallery 1.jpeg", 
+      img: "./images/Gallery 1.jpeg", 
       frameType: "frame-polaroid" 
     },
     { 
       id: 2,
       name: "Flaky Puffs", 
       desc: "Soft, flaky puffs baked fresh every morning with a buttery hug 🥐✨", 
-      img: "/images/Gallery 2.jpeg", 
+      img: "./images/Gallery 2.jpeg", 
       frameType: "frame-blob" 
     },
     { 
       id: 3,
       name: "Gift Boxes", 
       desc: "Curated boxes of joy, tied with a perfect pastel ribbon for someone you love 🎁🤍", 
-      img: "/images/Gallery 3.jpeg", 
+      img: "./images/Gallery 3.jpeg", 
       frameType: "frame-scalloped" 
     },
     { 
       id: 4,
       name: "Mini Treats", 
       desc: "Bite-sized happiness! Perfect tiny treats to brighten up your afternoon 🍓🍰", 
-      img: "/images/Gallery 4.jpeg", 
+      img: "./images/Gallery 4.jpeg", 
       frameType: "frame-sticker" 
     }
   ];
@@ -260,7 +260,7 @@ function App() {
         <div className="container about-container">
           <div className="about-left animate-slide-left">
             <div className="polaroid-frame">
-              <img src="/images/Gallery 1.jpeg" alt="Bake House Storefront" />
+              <img src="./images/Gallery 1.jpeg" alt="Bake House Storefront" />
               <div className="polaroid-caption">🤍🤍🤍</div>
             </div>
           </div>
@@ -295,11 +295,11 @@ function App() {
           
           <div className="bestsellers-collage">
             {[
-              { name: "🥟 Aloo Puff", desc: "Spiced potato, golden & flaky", color: "#FF6EB4", delay: "0s", img: "/images/Gallery 1.jpeg" },
-              { name: "🧀 Paneer Puff", desc: "Creamy cottage cheese, perfectly puffed", color: "#DA70FF", delay: "0.15s", img: "/images/Gallery 2.jpeg" },
-              { name: "🍄 Mushroom Puff", desc: "Earthy, herby & absolutely divine", color: "#FF9F1C", delay: "0.3s", img: "/images/Gallery 3.jpeg" },
-              { name: "🌽 Corn & Cheese Puff", desc: "Sweet corn meets melty cheese", color: "#FF6EB4", delay: "0.45s", img: "/images/Gallery 4.jpeg" },
-              { name: "🥕 Veggie Delight Puff", desc: "Fresh veggies, perfectly baked & irresistibly crispy", color: "#DA70FF", delay: "0.6s", img: "/images/Gallery 5.jpeg" }
+              { name: "🥟 Aloo Puff", desc: "Spiced potato, golden & flaky", color: "#FF6EB4", delay: "0s", img: "./images/Gallery 1.jpeg" },
+              { name: "🧀 Paneer Puff", desc: "Creamy cottage cheese, perfectly puffed", color: "#DA70FF", delay: "0.15s", img: "./images/Gallery 2.jpeg" },
+              { name: "🍄 Mushroom Puff", desc: "Earthy, herby & absolutely divine", color: "#FF9F1C", delay: "0.3s", img: "./images/Gallery 3.jpeg" },
+              { name: "🌽 Corn & Cheese Puff", desc: "Sweet corn meets melty cheese", color: "#FF6EB4", delay: "0.45s", img: "./images/Gallery 4.jpeg" },
+              { name: "🥕 Veggie Delight Puff", desc: "Fresh veggies, perfectly baked & irresistibly crispy", color: "#DA70FF", delay: "0.6s", img: "./images/Gallery 5.jpeg" }
             ].map((puff, idx) => (
               <div key={idx} className={`bestsellers-item item-${idx+1}`} style={{ transitionDelay: puff.delay }}>
                 <div className="bestsellers-frame-wrapper">
@@ -565,11 +565,11 @@ function App() {
 
           <div className="gallery-grid">
             {[
-              { name: "🍰 Strawberry Dream", img: "/images/Gallery 1.jpeg", class: "bento-1" },
-              { name: "🥐 Butter Croissant", img: "/images/Gallery 2.jpeg", class: "bento-2" },
-              { name: "🧁 Rose Cupcake", img: "/images/Gallery 3.jpeg", class: "bento-3" },
-              { name: "🍪 Choco Cookie", img: "/images/Gallery 4.jpeg", class: "bento-4" },
-              { name: "🥟 Aloo Puff", img: "/images/Gallery 5.jpeg", class: "bento-5" },
+              { name: "🍰 Strawberry Dream", img: "./images/Gallery 1.jpeg", class: "bento-1" },
+              { name: "🥐 Butter Croissant", img: "./images/Gallery 2.jpeg", class: "bento-2" },
+              { name: "🧁 Rose Cupcake", img: "./images/Gallery 3.jpeg", class: "bento-3" },
+              { name: "🍪 Choco Cookie", img: "./images/Gallery 4.jpeg", class: "bento-4" },
+              { name: "🥟 Aloo Puff", img: "./images/Gallery 5.jpeg", class: "bento-5" },
             ].map((photo, idx) => (
               <div key={idx} className={`gallery-bento-card ${photo.class}`}>
                 <img src={photo.img} alt={photo.name} />
@@ -609,7 +609,7 @@ function App() {
 
           <div className="atelier-right animate-slide-right">
             <div className="atelier-organic-frame">
-              <img src="/images/Gallery 1.jpeg" alt="Bake House Interior" />
+              <img src="./images/Gallery 1.jpeg" alt="Bake House Interior" />
               <div className="atelier-decor-heart">🤍</div>
               <div className="atelier-decor-sparkle">✨</div>
             </div>
